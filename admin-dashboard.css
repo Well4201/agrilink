@@ -1,0 +1,177 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background: #f4f5f1;
+  color: #2c3e1e;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  font-family: "Cinzel", serif;
+  color: #4a5d34;
+  font-weight: 600;
+}
+
+.welcome {
+  color: #4a5d34;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+/* ---------- Layout: sidebar + main content ---------- */
+.dashboard-wrapper {
+  display: flex;
+  flex: 1;
+}
+
+/* ---------- Main content ---------- */
+.main-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 35px clamp(16px, 4vw, 40px) 0 clamp(16px, 4vw, 40px);
+}
+
+.topbar h1 {
+  font-size: clamp(24px, 2vw, 30px);
+}
+
+.bell-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #4a5d34;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  flex-shrink: 0;
+  text-decoration: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* ---------- Company banner ---------- */
+.company-banner {
+  background: #4a5d34;
+  color: white;
+  border-radius: 20px;
+  padding: 22px 26px;
+  margin: 22px clamp(16px, 4vw, 40px) 0 clamp(16px, 4vw, 40px);
+}
+
+.company-banner h3 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.company-banner p {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ---------- Cards row ---------- */
+.cards-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 20px clamp(16px, 4vw, 40px) 40px clamp(16px, 4vw, 40px);
+}
+
+@media (max-width: 900px) {
+  .dashboard-wrapper {
+    flex-direction: column;
+  }
+  .cards-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Card (shared with user dashboard styling) ---------- */
+.card {
+  background: white;
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.card-header h3 {
+  color: #4a5d34;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.card-header a {
+  font-size: 12px;
+  color: #4a5d34;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid #f0f0ee;
+}
+
+.list-item:last-child {
+  border-bottom: none;
+}
+
+.list-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+.item-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #2c3e1e;
+}
+
+.item-sub {
+  font-size: 11px;
+  color: #888;
+  margin-top: 2px;
+}
+
+.footer {
+  background: linear-gradient(
+    to right,
+    rgba(126, 148, 96, 0.8),
+    rgba(169, 189, 139, 0.8)
+  );
+  color: white;
+}

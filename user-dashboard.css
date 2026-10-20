@@ -1,0 +1,340 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background: #f4f5f1;
+  color: #2c3e1e;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  font-family: "Cinzel", serif;
+  color: #4a5d34;
+  font-weight: 600;
+}
+
+.welcome {
+  color: #4a5d34;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 4px;
+  margin-bottom: 25px;
+}
+
+/* ---------- Shared landscape illustration (sky + hills + sun), CSS only ---------- */
+.landscape {
+  background:
+    radial-gradient(circle at 24% 30%, #fdf0b8 0 12%, transparent 13%),
+    radial-gradient(
+      ellipse 70% 55% at 26% 118%,
+      #b9d18f 0 100%,
+      transparent 101%
+    ),
+    radial-gradient(
+      ellipse 75% 60% at 80% 128%,
+      #8fae63 0 100%,
+      transparent 101%
+    ),
+    linear-gradient(to bottom, #cfe0ea, #eaf3da);
+  background-color: #cfe0ea;
+}
+
+/* ---------- Dashboard container ---------- */
+.dashboard-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 35px clamp(16px, 4vw, 20px);
+  flex: 1;
+  width: 100%;
+}
+.dashboard-container h1 {
+  font-size: clamp(28px, 2vw, 34px);
+}
+
+@media (min-width: 1440px) {
+  .dashboard-container {
+    max-width: 1300px;
+  }
+  .dashboard-grid {
+    gap: 26px;
+  }
+  .card {
+    padding: 26px;
+  }
+}
+@media (min-width: 1800px) {
+  .dashboard-container {
+    max-width: 1500px;
+  }
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 260px 1fr 280px;
+  gap: 20px;
+  grid-template-areas:
+    "summary stat stat"
+    "profile jobs ads"
+    "links jobs ads";
+}
+
+@media (max-width: 900px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "profile"
+      "summary"
+      "stat"
+      "links"
+      "jobs"
+      "ads";
+  }
+}
+
+/* ---------- Base card ---------- */
+.card {
+  background: white;
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+}
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.card-header h3 {
+  color: #4a5d34;
+  font-size: 15px;
+  font-weight: 600;
+}
+.card-header a {
+  font-size: 12px;
+  color: #4a5d34;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* ---------- Row 1: summary + stat ---------- */
+.summary-card {
+  grid-area: summary;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.summary-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: #4a5d34;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+}
+.summary-info .name {
+  font-weight: 700;
+  font-size: 14px;
+  color: #2c3e1e;
+  margin-bottom: 4px;
+}
+.summary-info .meta {
+  font-size: 12px;
+  font-weight: 600;
+  color: #4a5d34;
+  line-height: 1.5;
+}
+
+.stat-card {
+  grid-area: stat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.stat-card .stat-number {
+  font-family: "Cinzel", serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: #2c3e1e;
+}
+.stat-card .stat-label {
+  font-size: 12px;
+  color: #666;
+  max-width: 260px;
+  margin-top: 4px;
+}
+
+/* ---------- Profile card ---------- */
+.profile-card {
+  grid-area: profile;
+  text-align: center;
+}
+
+/* Cover is the positioning context for the avatar — avatar is a CHILD of cover,
+   not a sibling, so it can never escape and float relative to the page. */
+.profile-cover {
+  height: 70px;
+  margin: -22px -22px 30px -22px;
+  border-radius: 20px 20px 0 0;
+  position: relative;
+  overflow: visible;
+}
+.profile-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 4px solid white;
+  position: absolute;
+  left: 50%;
+  bottom: -25px;
+  transform: translateX(-50%);
+  background: #4a5d34;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.profile-card h3 {
+  font-size: 15px;
+  color: #2c3e1e;
+  margin-bottom: 3px;
+}
+.profile-card p.desc {
+  font-size: 11px;
+  color: #999;
+  margin-bottom: 15px;
+}
+.profile-links {
+  border-top: 1px solid #f0f0ee;
+}
+.profile-links a {
+  display: block;
+  padding: 10px 0;
+  font-size: 12px;
+  color: #4a5d34;
+  text-decoration: none;
+  border-bottom: 1px solid #f0f0ee;
+  font-weight: 500;
+}
+.profile-links a:last-child {
+  border-bottom: none;
+}
+
+/* ---------- Account settings / activity log card ---------- */
+.links-card {
+  grid-area: links;
+  padding: 0;
+  overflow: hidden;
+}
+.links-card a {
+  display: block;
+  padding: 16px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #2c3e1e;
+  text-decoration: none;
+  border-bottom: 1px solid #f0f0ee;
+}
+.links-card a:last-child {
+  border-bottom: none;
+}
+.links-card a:hover {
+  background: #fafaf8;
+}
+
+/* ---------- Jobs card ---------- */
+.jobs-card {
+  grid-area: jobs;
+}
+.list-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0ee;
+}
+.list-item:last-child {
+  border-bottom: none;
+}
+.list-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.item-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #2c3e1e;
+}
+.item-sub {
+  font-size: 11px;
+  color: #888;
+  margin-top: 2px;
+}
+
+/* ---------- Ads card ---------- */
+.ads-card {
+  grid-area: ads;
+}
+.ad-item {
+  display: flex;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0ee;
+}
+.ad-item:last-child {
+  border-bottom: none;
+}
+.ad-thumb {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: #ddd;
+  flex-shrink: 0;
+}
+.ad-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #2c3e1e;
+  margin-bottom: 3px;
+}
+.ad-desc {
+  font-size: 10px;
+  color: #888;
+  line-height: 1.4;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  background: linear-gradient(
+    to right,
+    rgba(126, 148, 96, 0.8),
+    rgba(169, 189, 139, 0.8)
+  );
+  padding: 16px 0;
+  margin-top: 30px;
+  flex-shrink: 0;
+  color: black;
+}
