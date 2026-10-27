@@ -84,7 +84,7 @@ $role = isset($_POST['role']) ? $_POST['role'] : (isset($_GET['role']) ? $_GET['
 <body>
 
   <header>
-    <a href="index.php" class="logo-container">
+    <a href="login.php" class="logo-container">
       <div class="logo-icon"><i class="ri-leaf-line"></i></div>
       AgriLink
     </a>

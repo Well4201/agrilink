@@ -1,10 +1,7 @@
 <?php
-session_start();
+require_once __DIR__ . '/auth.php';
 
-if (!isset($_SESSION['user_id']) || ($_SESSION['role'] ?? '') !== $expectedRole) {
-    header('Location: login.php');
-    exit;
-}
+requireRole($expectedRole);
 
 require 'db.php';
 require 'messages-table.php';

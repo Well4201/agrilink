@@ -1,10 +1,10 @@
 <?php
-session_start();
+require_once __DIR__ . '/auth.php';
 header('Content-Type: application/json');
 
 require_once 'db.php';
 
-if (!isset($_SESSION['user_id'])) {
+if (!isLoggedIn()) {
     http_response_code(401);
     echo json_encode(['notifications' => [], 'unread' => 0]);
     exit;

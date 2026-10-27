@@ -38,6 +38,6 @@ $icons = [
     </nav>
 
     <div class="sidebar-logout">
-        <a href="login.php"><i class="ri-logout-box-line"></i> Logout</a>
+        <a href="logout.php"><i class="ri-logout-box-line"></i> Logout</a>
     </div>
 </aside>

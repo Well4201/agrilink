@@ -1,3 +1,7 @@
+<?php
+require_once __DIR__ . '/auth.php';
+requireRole('employee');
+?>
 <!DOCTYPE html>
 <html lang="en">
 

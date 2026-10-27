@@ -1,11 +1,7 @@
 <?php
-session_start();
+require_once __DIR__ . '/auth.php';
+requireLogin();
 require 'db.php';
-
-if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
-    exit();
-}
 
 $isEmployer = ($_SESSION['role'] ?? '') === 'employer';
 $fname = '';
